@@ -1,0 +1,94 @@
+table olist_products_dataset
+	lineageTag: f079b549-edec-4495-bd6d-2e14e70823db
+
+	column product_id
+		dataType: string
+		lineageTag: a7aadff8-eb6c-454d-a51f-b98166ac5d4d
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_category_name
+		dataType: string
+		lineageTag: 992291e6-2552-430b-9581-f8ebb45555a1
+		summarizeBy: none
+		sourceColumn: product_category_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_name_lenght
+		dataType: int64
+		formatString: 0
+		lineageTag: 4adb3a0d-f78d-445d-b985-faf4f89edf34
+		summarizeBy: sum
+		sourceColumn: product_name_lenght
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_description_lenght
+		dataType: int64
+		formatString: 0
+		lineageTag: 172cb62e-2134-40b3-bc49-0bda17e5bf5e
+		summarizeBy: sum
+		sourceColumn: product_description_lenght
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_photos_qty
+		dataType: int64
+		formatString: 0
+		lineageTag: 5a2ad6ad-1809-4bd0-8b9b-c5886eb46a08
+		summarizeBy: sum
+		sourceColumn: product_photos_qty
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_weight_g
+		dataType: int64
+		formatString: 0
+		lineageTag: 01493433-9c43-46e0-bf34-74ad67df9a32
+		summarizeBy: sum
+		sourceColumn: product_weight_g
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_length_cm
+		dataType: int64
+		formatString: 0
+		lineageTag: 0d4c8a92-33ca-445a-ac99-7ebe53dd9b2c
+		summarizeBy: sum
+		sourceColumn: product_length_cm
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_height_cm
+		dataType: int64
+		formatString: 0
+		lineageTag: 7b058b73-2753-4b08-9b50-42b131ac908e
+		summarizeBy: sum
+		sourceColumn: product_height_cm
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_width_cm
+		dataType: int64
+		formatString: 0
+		lineageTag: ff4fe860-841d-465a-9379-5df56354930e
+		summarizeBy: sum
+		sourceColumn: product_width_cm
+
+		annotation SummarizationSetBy = Automatic
+
+	partition olist_products_dataset = m
+		mode: import
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents("C:\Users\alan_\OneDrive\Área de Trabalho\olist_analise\dados\olist_products_dataset.csv"),[Delimiter=",", Columns=9, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Usar a Primeira Linha como Cabeçalho" = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),
+				    #"Alterar Tipo" = Table.TransformColumnTypes(#"Usar a Primeira Linha como Cabeçalho",{{"product_id", type text}, {"product_category_name", type text}, {"product_name_lenght", Int64.Type}, {"product_description_lenght", Int64.Type}, {"product_photos_qty", Int64.Type}, {"product_weight_g", Int64.Type}, {"product_length_cm", Int64.Type}, {"product_height_cm", Int64.Type}, {"product_width_cm", Int64.Type}})
+				in
+				    #"Alterar Tipo"
+
+	annotation PBI_ResultType = Table
+

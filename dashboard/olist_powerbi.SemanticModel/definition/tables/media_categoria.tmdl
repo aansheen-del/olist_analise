@@ -1,0 +1,35 @@
+table media_categoria
+	lineageTag: e4e2003c-40dd-4ff6-92b9-9fc927ccbe30
+
+	column categoria
+		dataType: string
+		lineageTag: 06c46e18-946a-4eea-8464-6283686bd385
+		summarizeBy: none
+		sourceColumn: categoria
+
+		annotation SummarizationSetBy = Automatic
+
+	column media_review
+		dataType: double
+		lineageTag: 21a560d7-ca84-406d-9cfc-59c343144242
+		summarizeBy: none
+		sourceColumn: media_review
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition media_categoria = m
+		mode: import
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents("C:\Users\alan_\OneDrive\Área de Trabalho\olist_analise\dados\media_categoria.csv"),[Delimiter=",", Columns=2, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"categoria", type text}, {"media_review", type number}})
+				in
+				    #"Tipo Alterado"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegação
+

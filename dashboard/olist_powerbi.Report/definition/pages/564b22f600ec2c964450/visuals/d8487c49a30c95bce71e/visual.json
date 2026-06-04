@@ -1,0 +1,150 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "d8487c49a30c95bce71e",
+  "position": {
+    "x": 9.9766173031956349,
+    "y": 0,
+    "z": 0,
+    "height": 623.53858144972719,
+    "width": 1263.0397505845674,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "barChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "olist_customers_dataset"
+                    }
+                  },
+                  "Property": "customer_state"
+                }
+              },
+              "queryRef": "olist_customers_dataset.customer_state",
+              "nativeQueryRef": "customer_state",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "olist_customers_dataset"
+                    }
+                  },
+                  "Property": "% Atraso"
+                }
+              },
+              "queryRef": "olist_customers_dataset.% Atraso",
+              "nativeQueryRef": "% Atraso"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "olist_customers_dataset"
+                  }
+                },
+                "Property": "% Atraso"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "categoryAxis": [
+        {
+          "properties": {
+            "titleText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Estado'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "titleText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Atraso (%)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Porcentagem de atraso por estado'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "c5395e8fee43541077e7",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "olist_customers_dataset"
+              }
+            },
+            "Property": "customer_state"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "9954ba0dc071c7407853",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "olist_customers_dataset"
+              }
+            },
+            "Property": "% Atraso"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

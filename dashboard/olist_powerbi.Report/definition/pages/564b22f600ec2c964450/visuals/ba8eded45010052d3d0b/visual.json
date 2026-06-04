@@ -1,0 +1,74 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "ba8eded45010052d3d0b",
+  "position": {
+    "x": 932.70417422867513,
+    "y": 623.73865698729583,
+    "z": 2,
+    "height": 96.4065335753176,
+    "width": 340.32667876588022,
+    "tabOrder": 2
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "olist_customers_dataset"
+                    }
+                  },
+                  "Property": "Media Avaliacao para pedidos no prazo"
+                }
+              },
+              "queryRef": "olist_customers_dataset.Media Avaliacao No Prazo",
+              "nativeQueryRef": "Media Avaliacao para pedidos no prazo"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "olist_customers_dataset"
+                  }
+                },
+                "Property": "Media Avaliacao para pedidos no prazo"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "6ca773337c1a874ce75d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "olist_customers_dataset"
+              }
+            },
+            "Property": "Media Avaliacao para pedidos no prazo"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

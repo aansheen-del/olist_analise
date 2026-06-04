@@ -1,0 +1,32 @@
+model Model
+	culture: pt-BR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: pt-BR
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["olist_orders_dataset","olist_customers_dataset","olist_order_reviews_dataset","olist_order_items_dataset","olist_products_dataset","media_categoria"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table olist_orders_dataset
+ref table DateTableTemplate_9536af27-1c28-4130-98b4-c6aadc0676eb
+ref table LocalDateTable_4cf84ed5-b839-4f3d-ad38-cda43ff794c4
+ref table LocalDateTable_40b51d7e-9d9f-43c7-bb4e-65d962d9242f
+ref table LocalDateTable_7cbedeb3-5a1f-4165-a3a6-72b30fdd76ec
+ref table LocalDateTable_5a25d0ec-34eb-4e7f-8816-4615cc765187
+ref table LocalDateTable_5c6cd14a-4450-4e69-8b05-60d827608c60
+ref table olist_customers_dataset
+ref table olist_order_reviews_dataset
+ref table LocalDateTable_365f4ef5-4a06-457e-97e0-a70d0bffc184
+ref table LocalDateTable_e7c68fd8-359d-4ea4-9431-4de6e46bb662
+ref table olist_order_items_dataset
+ref table LocalDateTable_c7829cdc-d350-4926-904c-0bbf16f324e4
+ref table olist_products_dataset
+ref table media_categoria
+
+ref cultureInfo pt-BR
+

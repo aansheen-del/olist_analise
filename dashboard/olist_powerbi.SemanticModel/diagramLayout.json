@@ -1,0 +1,100 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 0,
+            "y": 18
+          },
+          "nodeIndex": "olist_orders_dataset",
+          "nodeLineageTag": "f3ce1fd1-aa68-4a51-b10e-b60fa3d2a8d3",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 355
+          },
+          "nodeIndex": "olist_customers_dataset",
+          "nodeLineageTag": "7ae7f22a-efe1-43f4-b09f-2f9c79ce1ab7",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 568,
+            "y": 30
+          },
+          "nodeIndex": "olist_order_reviews_dataset",
+          "nodeLineageTag": "c2e9bbe7-7660-40af-bb76-129f3b1e29db",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 325,
+            "y": 342
+          },
+          "nodeIndex": "olist_order_items_dataset",
+          "nodeLineageTag": "5717dda8-c804-4298-9682-cb9ee7413127",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 913,
+            "y": 315
+          },
+          "nodeIndex": "olist_products_dataset",
+          "nodeLineageTag": "f079b549-edec-4495-bd6d-2e14e70823db",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 1197,
+            "y": 238.5
+          },
+          "nodeIndex": "media_categoria",
+          "nodeLineageTag": "e4e2003c-40dd-4ff6-92b9-9fc927ccbe30",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Todas as tabelas",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Todas as tabelas",
+  "defaultDiagram": "Todas as tabelas"
+}

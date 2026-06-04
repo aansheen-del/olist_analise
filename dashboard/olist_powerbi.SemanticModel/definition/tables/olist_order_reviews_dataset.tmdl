@@ -1,0 +1,84 @@
+table olist_order_reviews_dataset
+	lineageTag: c2e9bbe7-7660-40af-bb76-129f3b1e29db
+
+	column review_id
+		dataType: string
+		lineageTag: e838e6b7-82bd-49d5-8222-c2e0af914357
+		summarizeBy: none
+		sourceColumn: review_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_id
+		dataType: string
+		lineageTag: 3ead1e04-5df4-4e0b-9e9c-2f54287b634a
+		summarizeBy: none
+		sourceColumn: order_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column review_score
+		dataType: int64
+		formatString: 0
+		lineageTag: f13750fa-5dbb-40f5-9f54-99185133c827
+		summarizeBy: none
+		sourceColumn: review_score
+
+		annotation SummarizationSetBy = User
+
+	column review_comment_title
+		dataType: string
+		lineageTag: da989b0e-e83c-48ed-bbd0-3444847907ae
+		summarizeBy: none
+		sourceColumn: review_comment_title
+
+		annotation SummarizationSetBy = Automatic
+
+	column review_comment_message
+		dataType: string
+		lineageTag: 0dd62168-295d-4101-80c0-dc5f1d175bfc
+		summarizeBy: none
+		sourceColumn: review_comment_message
+
+		annotation SummarizationSetBy = Automatic
+
+	column review_creation_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 6c10ae34-01c9-494d-bf9a-d7dc08c93fff
+		summarizeBy: none
+		sourceColumn: review_creation_date
+
+		variation Variation
+			isDefault
+			relationship: 3701fc47-093e-4a8c-8f3b-2924535a4790
+			defaultHierarchy: LocalDateTable_365f4ef5-4a06-457e-97e0-a70d0bffc184.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column review_answer_timestamp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 3cd0a553-2e70-4088-bcc9-eee9117884cf
+		summarizeBy: none
+		sourceColumn: review_answer_timestamp
+
+		variation Variation
+			isDefault
+			relationship: 970b1ef0-aa3a-40aa-90e3-c94fc7caaa63
+			defaultHierarchy: LocalDateTable_e7c68fd8-359d-4ea4-9431-4de6e46bb662.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition olist_order_reviews_dataset = m
+		mode: import
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents("C:\Users\alan_\OneDrive\Área de Trabalho\olist_analise\dados\olist_order_reviews_dataset.csv"),[Delimiter=",", Columns=7, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    #"Usar a Primeira Linha como Cabeçalho" = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),
+				    #"Alterar Tipo" = Table.TransformColumnTypes(#"Usar a Primeira Linha como Cabeçalho",{{"review_id", type text}, {"order_id", type text}, {"review_score", Int64.Type}, {"review_comment_title", type text}, {"review_comment_message", type text}, {"review_creation_date", type datetime}, {"review_answer_timestamp", type datetime}})
+				in
+				    #"Alterar Tipo"
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,74 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "ba079ce4e22060dcc403",
+  "position": {
+    "x": 23.230490018148821,
+    "y": 623.73865698729583,
+    "z": 1,
+    "height": 96.4065335753176,
+    "width": 367.04174228675134,
+    "tabOrder": 1
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "olist_customers_dataset"
+                    }
+                  },
+                  "Property": "Media de Avaliacao para pedidos atrasados"
+                }
+              },
+              "queryRef": "olist_customers_dataset.Media Avaliacao Atrasados",
+              "nativeQueryRef": "Media de Avaliacao para pedidos atrasados"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "olist_customers_dataset"
+                  }
+                },
+                "Property": "Media de Avaliacao para pedidos atrasados"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "5a50c3458006179cb420",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "olist_customers_dataset"
+              }
+            },
+            "Property": "Media de Avaliacao para pedidos atrasados"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

@@ -1,0 +1,80 @@
+table olist_order_items_dataset
+	lineageTag: 5717dda8-c804-4298-9682-cb9ee7413127
+
+	column order_id
+		dataType: string
+		lineageTag: 1b30bbbc-6209-4ae3-b37e-931ef0543261
+		summarizeBy: none
+		sourceColumn: order_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_item_id
+		dataType: int64
+		formatString: 0
+		lineageTag: de0a1d52-6157-4b10-8ba0-1a85f84d5bae
+		summarizeBy: sum
+		sourceColumn: order_item_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_id
+		dataType: string
+		lineageTag: 1b787848-63eb-4f60-b2f4-6f96a9af8f77
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column seller_id
+		dataType: string
+		lineageTag: f885c0fb-cc89-4581-991a-9ff05ef7207b
+		summarizeBy: none
+		sourceColumn: seller_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column shipping_limit_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 62810c9c-f8e0-42e3-810a-efa5e110bdf6
+		summarizeBy: none
+		sourceColumn: shipping_limit_date
+
+		variation Variation
+			isDefault
+			relationship: faf93e3c-4975-4a6f-ad48-dd68a2357351
+			defaultHierarchy: LocalDateTable_c7829cdc-d350-4926-904c-0bbf16f324e4.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column price
+		dataType: int64
+		formatString: 0
+		lineageTag: 154ab846-2615-48ae-ac37-b68b3d1c2636
+		summarizeBy: sum
+		sourceColumn: price
+
+		annotation SummarizationSetBy = Automatic
+
+	column freight_value
+		dataType: int64
+		formatString: 0
+		lineageTag: a5fe5021-3483-4bac-9dd7-a48acfdee8c5
+		summarizeBy: sum
+		sourceColumn: freight_value
+
+		annotation SummarizationSetBy = Automatic
+
+	partition olist_order_items_dataset = m
+		mode: import
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents("C:\Users\alan_\OneDrive\Área de Trabalho\olist_analise\dados\olist_order_items_dataset.csv"),[Delimiter=",", Columns=7, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Usar a Primeira Linha como Cabeçalho" = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),
+				    #"Alterar Tipo" = Table.TransformColumnTypes(#"Usar a Primeira Linha como Cabeçalho",{{"order_id", type text}, {"order_item_id", Int64.Type}, {"product_id", type text}, {"seller_id", type text}, {"shipping_limit_date", type datetime}, {"price", Int64.Type}, {"freight_value", Int64.Type}})
+				in
+				    #"Alterar Tipo"
+
+	annotation PBI_ResultType = Table
+
